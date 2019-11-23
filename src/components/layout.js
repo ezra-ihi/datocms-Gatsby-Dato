@@ -95,7 +95,7 @@ const TemplateWrapper = ({ children }) => (
               <div className="sheet__gallery">
                 <Img fluid={slider.image.fluid} />
                 <h1>{slider.header}</h1>
-                <h2>{slider.header}</h2>
+                <h2>{slider.subheader}</h2>
               </div>
             </div>
             ))}
