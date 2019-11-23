@@ -36,7 +36,7 @@ export const query = graphql`
       }
       title
       subtitle
-      simple_new_text
+      simpleNewField
       photo {
         fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
           ...GatsbyDatoCmsSizes
