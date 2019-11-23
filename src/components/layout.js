@@ -89,17 +89,17 @@ const TemplateWrapper = ({ children }) => (
               > </a>
             ))}
           </p>
-          <p className="sidebar__social slider">
-            {data.allDatoCmsSlider.edges.map(({ node: slider }) => (
-              <a
-                key={slider.header}
-                href={slider.url}
-                target="blank"
-              >{slider.header}<div className="sheet__gallery">
-              <Img fluid={slider.image.fluid} />
-            </div>{slider.subheader}</a>
+          <div className="slider">
+          {data.allDatoCmsSlider.edges.map(({ node: slider }) => (
+            <div className="slide">
+              <div className="sheet__gallery">
+                <Img fluid={slider.image.fluid} />
+                <h1>{slider.header}</h1>
+                <h2>{slider.header}</h2>
+              </div>
+            </div>
             ))}
-          </p>
+          </div>
           <div className="sidebar__copyright">{data.datoCmsHome.copyright}</div>
         </div>
       </div>
