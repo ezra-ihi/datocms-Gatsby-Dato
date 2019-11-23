@@ -37,6 +37,14 @@ const TemplateWrapper = ({ children }) => (
           }
         }
       }
+      allDatoCmsSlider(sort: { fields: [position], order: ASC }) {
+        edges {
+          node {
+            header
+            subheader
+          }
+        }
+      }
     }
   `}
   render={data => (
@@ -72,6 +80,15 @@ const TemplateWrapper = ({ children }) => (
                 target="blank"
                 className={`social social--${profile.profileType.toLowerCase()}`}
               > </a>
+            ))}
+          </p>
+          <p className="sidebar__social slider">
+            {data.allDatoCmsSlider.edges.map(({ node: slider }) => (
+              <a
+                key={slider.header}
+                href="#"
+                target="blank"
+              >{slider.header} {slider.subheader}</a>
             ))}
           </p>
           <div className="sidebar__copyright">{data.datoCmsHome.copyright}</div>
