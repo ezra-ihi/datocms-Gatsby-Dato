@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from "gatsby"
+import Img from 'gatsby-image'
 import { HelmetDatoCms } from 'gatsby-source-datocms'
 
 import '../styles/index.sass'
@@ -42,6 +43,12 @@ const TemplateWrapper = ({ children }) => (
           node {
             header
             subheader
+            url
+            image {
+              fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+                ...GatsbyDatoCmsSizes
+              }
+            }
           }
         }
       }
@@ -86,9 +93,11 @@ const TemplateWrapper = ({ children }) => (
             {data.allDatoCmsSlider.edges.map(({ node: slider }) => (
               <a
                 key={slider.header}
-                href="#"
+                href={slider.url}
                 target="blank"
-              >{slider.header} {slider.subheader}</a>
+              >{slider.header}<div className="sheet__gallery">
+              <Img fluid={slider.image.fluid} />
+            </div>{slider.subheader}</a>
             ))}
           </p>
           <div className="sidebar__copyright">{data.datoCmsHome.copyright}</div>
