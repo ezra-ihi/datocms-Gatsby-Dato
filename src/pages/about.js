@@ -24,7 +24,6 @@ const About = ({ data: { about } }) => (
       </div>
       <div className="slider">
         <h1>{about.boxes.title}</h1>
-        <div className="sheet__body" dangerouslySetInnerHTML={{__html: about.boxes.introNode.childMarkdownRemark.html,}} />
       </div>
     </article>
   </Layout>
